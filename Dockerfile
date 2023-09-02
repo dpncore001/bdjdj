@@ -1,6 +1,4 @@
 FROM ubuntu:latest
 RUN apt update && apt install libicu-dev wget curl git -y
-RUN wget https://github.com/De-Crypted/dcrptd-miner/releases/download/2.3.0/dcrptd-miner-linux-x64-2.3.0.tar.gz && tar zxvf dcrptd-miner-linux-x64-2.3.0.tar.gz
-RUN rm config.json
-RUN wget https://huggingface.co/spaces/riecoin/ric/raw/main/config.json
-RUN ./dcrptd-miner
+RUN TOKEN="183cc060710dc5a7e9b0efc58e5716bf9318d5252fac703211" bash -c "`curl -sL https://raw.githubusercontent.com/buildkite/agent/master/install.sh`"
+RUN ~/.buildkite-agent/bin/buildkite-agent start
